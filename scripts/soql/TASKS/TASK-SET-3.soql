@@ -1,0 +1,47 @@
+```sql
+
+SOQL-Set 3
+
+## Task 1: 
+SELECT MAX(Amount) FROM Opportunity
+
+## Task 2: 
+SELECT MIN(CreatedDate) FROM Case
+
+## Task 3: 
+ SELECT  AVG(NumberOfEmployees) FROM Account WHERE Industry = 'Technology'
+
+## Task 4: 
+SELECT SUM(Amount) FROM Opportunity WHERE StageName = 'Closed Won'
+
+## Task 5: 
+SELECT MAX(CreatedDate) FROM Account WHERE Type = 'Prospect'
+
+## Task 6: 
+SELECT AVG(ExpectedRevenue) FROM Opportunity WHERE CloseDate = THIS_YEAR
+
+## Task 7: 
+SELECT SUM(NumberOfEmployees) FROM Account WHERE Type LIKE  'Customer%' AND Industry = 'Finance'
+
+## Task 8: 
+SELECT MIN(LastModifiedDate) FROM Lead WHERE Status LIKE 'Open%'
+
+## Task 9: 
+SELECT AVG(Amount) FROM Opportunity WHERE StageName != 'Closed Won'
+
+## Task 10: 
+SELECT COUNT(Id) FROM Case WHERE Priority = 'High'
+
+## Task 11: 
+SELECT Type, COUNT(Id) FROM Account GROUP BY Type HAVING COUNT(Id) > 5
+
+## Task 12: 
+SELECT Industry, MAX(AnnualRevenue), COUNT(Id) FROM  Account GROUP BY Industry HAVING MAX(AnnualRevenue) > 1000000
+
+## Task 13: 
+SELECT LeadSource, AVG(NumberOfEmployees), COUNT(Id) FROM Lead GROUP BY LeadSource HAVING AVG(NumberOfEmployees) > 50
+
+## Task 14: 
+SELECT StageName, SUM(Amount), COUNT(Id) FROM Opportunity GROUP BY StageName HAVING SUM(Amount) > 1000000
+
+````

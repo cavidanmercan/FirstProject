@@ -1,0 +1,38 @@
+```sql
+
+SOQL-Set 2
+
+Task-1
+SELECT Id, Name FROM Profile WHERE Name = 'NightWatcher'
+
+Task-2 
+SELECT  Name, Profile.Name FROM User WHERE Profile.Name = 'NightWatcher' OR Profile.Name LIKE 'System%'
+
+Task-3
+SELECT Name, RecordTypeId, RecordType.Name FROM Boat__c WHERE RecordType.Name LIKE '%boat%'
+
+Task-4
+SELECT Name, CreatedBy.Name, Year_Built__c FROM Boat__c WHERE CreatedBy.Name = 'Jon Snow' AND Year_Built__c < LAST_YEAR
+
+Task-5
+SELECT COUNT(Id) FROM Boat__c WHERE RecordType.Name = 'Speedboat'
+
+Task-6 and Task-7
+SELECT Name, UserRole.Name FROM User WHERE  UserRole.Name  LIKE '%Sale%' OR  UserRole.Name LIKE '%CEO%'
+
+Task-8
+SELECT Subject, ActivityDate, WhoId, Who.Name FROM Task WHERE WhoId != NULL
+
+Task-9
+SELECT Subject, Contact.Name FROM Case WHERE Contact.Name != NULL AND Subject LIKE '%Generator%'
+
+Task-10
+SELECT Name, (SELECT Name FROM Boats__r) FROM Account WHERE Id IN (SELECT Current_Owner__c FROM Boat__c )
+
+Task-11
+SELECT Name, Id, (SELECT Subject FROM Cases WHERE Subject LIKE '%Generator%') FROM Account WHERE Id IN (SELECT AccountId FROM Case)
+
+Task-12
+SELECT Name, (SELECT StageName FROM Opportunities WHERE StageName = 'Closed Won') FROM Account WHERE Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Closed Won')
+
+````

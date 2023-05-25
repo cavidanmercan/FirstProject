@@ -1,0 +1,13 @@
+SELECT Name, Account.Name, Email
+FROM Contact
+WHERE Account.Name = 'Super Parent'
+
+
+SELECT Id,Name, OwnerID
+FROM Contact
+WHERE ID='003Dm000003Nep0IAC'
+
+
+//son ders
+SELECT Id, Name FROM Contact
+WHERE FirstName = 'Avi' LIMIT 1

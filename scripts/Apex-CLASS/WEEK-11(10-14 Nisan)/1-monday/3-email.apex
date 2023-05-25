@@ -1,0 +1,1 @@
+EmailManager.sendMail('cavidan.salesforce@gmail.com', 'Email from Apex', 'Body from Apex'); 

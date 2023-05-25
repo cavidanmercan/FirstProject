@@ -1,0 +1,75 @@
+body {
+    background-color: #f0f4f8;
+    font-family: Arial, sans-serif;
+    margin: 20px 0; /* Add margin top and bottom */
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  h1 {
+    color: #3252a8;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    color: #3252a8;
+    font-family: Verdana, sans-serif;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  label {
+    color: #3252a8;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .mystyle {
+    border: 2px solid #3252a8;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: #ffffff;
+  }
+  
+  input[type="text"],
+  input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 2px solid #3252a8;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    background-color: #f0f4f8;
+    box-sizing: border-box;
+  }
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus {
+    outline: none;
+    border-color: #4d90fe;
+  }
+  
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #3252a8;
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #4d90fe;
+  }

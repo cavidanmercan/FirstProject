@@ -1,0 +1,50 @@
+<template>
+  <lightning-card title="Data Binding 3" icon-name="custom:custom1">
+    <div class="slds-var-m-around_medium">
+
+      <lightning-input
+        type="number"
+        variant="label-inline"
+        label="First Number"
+        onchange={handleNum1Change}
+        step="any"
+        value={inputValue1}
+      ></lightning-input>
+
+      <lightning-input
+        type="number"
+        variant="label-inline"
+        label="Second Number"
+        onchange={handleNum2Change}
+        step="any"
+        value={inputValue2}
+      ></lightning-input>
+
+      <div class="slds-var-m-top_small slds-align_absolute-center">
+        Addition Result is : {additionResult}
+      </div>
+
+      <div class="slds-var-m-top_small slds-align_absolute-center">
+        Subtraction Result is : {subtractionResult}
+      </div>
+
+      <div class="slds-var-m-top_small slds-align_absolute-center">
+        Multiplication Result is : {multiplicationResult}
+      </div>
+
+      <div class="slds-var-m-top_small slds-align_absolute-center">
+        Division Result is : {divisionResult}
+      </div>
+
+      <div class="slds-var-m-around_medium slds-align_absolute-center">
+      <lightning-button
+      variant="brand" 
+      label="Reset"
+      onclick={handleReset}
+    ></lightning-button>
+  </div>
+
+
+    </div>
+  </lightning-card>
+</template>

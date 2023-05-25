@@ -1,0 +1,36 @@
+```sql
+
+# Task Set 4
+
+## Task 1: 
+SELECT  Name, Account.Name , Email FROM Contact WHERE Account.Name = 'Super Parent'
+
+## Task 2: 
+SELECT Name, AnnualRevenue, (SELECT Name FROM Contacts) FROM Account WHERE Name = 'Super Parent' 
+
+## Task 3: 
+Id superAccId = [SELECT Id FROM Account WHERE Name='Super Parent' LIMIT 1].Id ; 
+
+List<Opportunity> orphanOpps = [SELECT Name, Amount FROM Opportunity WHERE AccountId = NULL]; 
+
+for(Opportunity each : orphanOpps) {
+    each.AccountId = superAccId ; 
+}
+update orphanOpps ; 
+
+## Task 4: 
+SELECT  Name, Account.Name, Account.StageName FROM Opportunity WHERE Account.Name = 'Super Parent'
+
+## Task 5:                        BURADA BİR SORUN VAR KOD ÇALIŞMIYOR
+Id superId =[SELECT Id FROM Contact WHERE Name = 'Super Jon' LIMIT 1].Id;
+
+List<Case> orphanCases =[SELECT CaseNumber	FROM Case WHERE ContactId = null];
+for(Case each : orphanCases) {
+ each.ContactId = superId;
+}
+update orphanCases;
+
+## Task 6: 
+SELECT Subject, Contact.Name, Status FROM Case WHERE Contact.Name = 'Super Jon'
+
+````

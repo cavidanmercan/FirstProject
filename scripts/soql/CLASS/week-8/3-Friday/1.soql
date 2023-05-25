@@ -1,0 +1,31 @@
+//SELECT Name,  (SELECT Name, Email FROM Contacts)  FROM Account
+  
+//SELECT Name,  (SELECT Subject FROM Cases)  FROM Account ORDER BY CreatedDate ASC
+
+
+//SELECT Name,  (SELECT Subject, Status FROM Cases)  FROM Contact
+
+
+//SELECT  Name, (SELECT Name, Price__c FROM Books__r) FROM Contact
+
+//SELECT AccountId FROM Contact WHERE LastName = 'Forbes' 
+
+//SELECT Name FROM Account WHERE Id = 'Enter your ID here' 
+
+//SELECT Name FROM Account WHERE Id IN (SELECT AccountId FROM Contact WHERE LastName LIKE 'F%')
+
+
+//SELECT Name, (SELECT FirstName,LastName  FROM Contacts )
+//FROM Account
+//WHERE Id IN (SELECT AccountId FROM Contact WHERE LastName LIKE 'F%')
+
+
+//SELECT Name , (SELECT FirstName,LastName FROM Contacts  WHERE LastName LIKE 'F%')
+//FROM Account 
+//WHERE Id IN (SELECT AccountId FROM Contact WHERE LastName LIKE 'F%')
+
+//SELECT Name, AccountId, Account.Name FROM Opportunity
+
+//SELECT Name FROM Account WHERE Id IN (SELECT AccountId FROM Opportunity)
+
+SELECT Name FROM Account WHERE Id NOT IN (SELECT AccountId FROM Opportunity)

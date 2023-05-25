@@ -1,0 +1,38 @@
+// 1. Disable existing BookTrigger 
+// 2. Create A Trigger called BookOwnerTrigger 
+// This trigger listen for two events before insert, before update
+// This trigger has below logic 
+// Whenever book is created or updated 
+// if the Contact look up field is not empty 
+   // assign the owner of this Book to the same Owner of Contact Record 
+
+
+/*
+
+Book__c b1 = new Book__c (Name='LOTR');
+insert b1;
+
+*/
+
+
+
+//son derste buradan recor oluşturduk
+
+// Get the Contact Id of Avi Green 
+Id aviId = [SELECT Id FROM Contact
+            WHERE FirstName = 'Avi' LIMIT 1 ].Id ; 
+
+Id andyId = [SELECT Id FROM Contact
+            WHERE FirstName = 'Andy' LIMIT 1 ].Id ; 
+// Create 3 Books under Avi Green
+List<Book__c> bookLst = new List<Book__c>(); 
+bookLst.add( new Book__c(Name='Book1' ,Contact__c = aviId )  ); 
+bookLst.add( new Book__c(Name='Book2' ,Contact__c = aviId )  ); 
+bookLst.add( new Book__c(Name='Book3' ,Contact__c = andyId )  ); 
+// Insert these books so we can trigger the Trigger 
+insert bookLst ; 
+
+
+
+
+

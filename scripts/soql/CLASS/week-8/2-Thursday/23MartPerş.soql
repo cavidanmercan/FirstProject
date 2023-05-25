@@ -1,0 +1,57 @@
+//SELECT Name, ApiVersion, Body FROM ApexTrigger
+
+
+//SELECT Id, Username, FirstName, LastName FROM User
+
+//SELECT Id, Username, FirstName, LastName, ProfileId FROM User
+
+//SELECT Id, Name FROM Profile
+
+
+//SELECT  Id, Name FROM Profile WHERE Name IN ('System Administrator','Standard User','Standard Platform User')
+
+//SELECT Id, Name FROM UserRole 
+
+//SELECT Id, Name, DeveloperName  FROM UserRole
+
+
+
+//SELECT Id, DeveloperName   FROM Group
+
+//SELECT Id, DeveloperName, Type  FROM Group
+
+
+//SELECT  Id, Author__c, Price__c, Year__c, Description__c   FROM Book__c WHERE Description__c !=NULL OR Price__c != NULL
+
+//SELECT FIELDS (ALL) FROM Account LIMIT 200
+
+//SELECT FIELDS (STANDARD) FROM Account LIMIT 200
+
+//SELECT FIELDS (CUSTOM) FROM Account LIMIT 200
+
+
+//SELECT FIELDS (ALL) FROM Book__c LIMIT 200
+//SELECT FIELDS (STANDARD) FROM Book__c LIMIT 200
+
+
+//SELECT FirstName, LastName FROM  Contact WHERE FirstName LIKE 'JO%'
+
+//SELECT FirstName, LastName FROM Contact WHERE FirstName LIKE 'A%'
+
+
+//SELECT FirstName, LastName FROM Contact WHERE FirstName LIKE '%A'
+
+//SELECT FirstName, LastName FROM Contact WHERE FirstName LIKE '%A%'
+//SELECT FirstName, LastName FROM Contact WHERE FirstName LIKE 'A%Y'
+
+
+//SELECT FirstName, LastName  FROM Contact WHERE FirstName LIKE 'A__Y'
+
+
+
+//SELECT FirstName, LastName FROM Contact WHERE CreatedDate= TODAY
+
+//SELECT FirstName, LastName FROM Contact WHERE CreatedDate= YESTERDAY
+
+// Get all the opportunity ClosedDate is Last 90 Days 
+SELECT Name, CloseDate, StageName FROM Opportunity WHERE CloseDate = LAST_90_DAYS

@@ -1,0 +1,25 @@
+//1. soru için önce bunu sorguladık sonra apex e geçtik
+
+SELECT COUNT(ID) , SUM(Amount),  
+MAX(Amount) ,  MIN(Amount) , AVG(Amount) 
+FROM Opportunity
+
+
+SELECT COUNT(ID) MyOppsCount, SUM(Amount) TotalAmount,  
+MAX(Amount) HighestAmount,  MIN(Amount) LowestAmount, AVG(Amount) AverageAmount
+FROM Opportunity
+
+//bunlara alias diyor normalde expr0=174, expr1=23423423423 isimleri var biz bunları daha açıklayıcı hale getirdik
+
+
+
+//2. soru için önce bunu sorguladık sonra apex e geçtik
+
+SELECT COUNT(Id) CountOfOpps, MIN(Amount) LowestAmount
+FROM OPPORTUNITY
+
+//3. soru için önce bunu sorguladık sonra apex e geçtik
+
+SELECT StageName, COUNT(Id) CountOfOpps
+FROM OPPORTUNITY
+GROUP BY StageName
