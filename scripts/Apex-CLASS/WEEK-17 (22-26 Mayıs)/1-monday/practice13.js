@@ -1,0 +1,1 @@
+// practice1 LWC oluşturduk (firstProject folder da)

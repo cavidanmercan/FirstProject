@@ -1,0 +1,1 @@
+//Practice 11-12 LWC oluşturduk
