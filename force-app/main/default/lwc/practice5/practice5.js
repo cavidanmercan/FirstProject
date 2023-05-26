@@ -2,7 +2,7 @@ import { LightningElement } from 'lwc';
 
 export default class practice5 extends LightningElement {
 
-    num1 = 0 ; 
+    num1 = 0; 
     num2 = 0;
     
     get additionResult() {
@@ -27,8 +27,6 @@ export default class practice5 extends LightningElement {
             return  result.toFixed(2); 
         }
     }    
-
-
 
     handleNum1Change(event) {
         // set the value of num1 to what user typed

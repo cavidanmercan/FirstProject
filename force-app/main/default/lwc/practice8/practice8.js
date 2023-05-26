@@ -11,6 +11,7 @@ export default class practice8 extends LightningElement {
 
   }
 
+  
   handleGraduatedChange(event) {
     this.graduated = event.target.checked;
     this.promoted = this.hired && this.graduated; 

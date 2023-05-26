@@ -5,6 +5,7 @@ export default class practice6 extends LightningElement {
   graduated = true;
   promoted = false;
 
+
   handleHiredChange(event) {
     //event.target will return entire hired checkbox element
     //and we can access the attribute like
@@ -27,7 +28,7 @@ export default class practice6 extends LightningElement {
     //       this.promoted = false; 
     //   }
 
-    this.promoted = this.hired && this.graduate ; 
+    this.promoted = this.hired && this.graduated ; 
 
 
   }
@@ -37,11 +38,15 @@ export default class practice6 extends LightningElement {
     console.log(event.target.checked);
       this.graduated = event.target.checked;
       
-    if (this.hired === true && this.graduated === true) {
-        this.promoted = true; 
-    } else {
-        this.promoted = false; 
-    }
+    // if (this.hired === true && this.graduated === true) {
+    //     this.promoted = true; 
+    // } else {
+    //     this.promoted = false; 
+    // }
       
+
+    this.promoted = this.hired && this.graduated ; 
+
+
   }
 }

@@ -15,5 +15,6 @@ export default class practice10 extends LightningElement {
         { id: 10, foodName: 'Lobster', calories: 129 }
     ];
 
+    
 
 }

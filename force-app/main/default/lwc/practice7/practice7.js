@@ -14,6 +14,7 @@ export default class practice7 extends LightningElement {
         // }
     }
 
+    
     handleToggleChange(event) {
         
         console.log(event.target.label); 

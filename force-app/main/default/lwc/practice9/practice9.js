@@ -1,5 +1,5 @@
 import { LightningElement } from 'lwc';
-export default class Practice9 extends LightningElement {
+export default class practice9 extends LightningElement {
     // property|field to store selected option
     selectedValue = ''; 
     // this is the format that we need to provide the options 
@@ -16,6 +16,7 @@ export default class Practice9 extends LightningElement {
             { label: 'Kosovo', value: 'KV' },
         ];
     }
+
     // this is the way we get the selected value 
     // from the picklist using the event
     // it's not under event.target, it's under event.detail
