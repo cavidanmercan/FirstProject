@@ -28,7 +28,6 @@ export default class Practice11 extends LightningElement {
         );
     }
 
-
 }
 
 /**
