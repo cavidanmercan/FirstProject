@@ -42,6 +42,10 @@ public without sharing class AccountController {
      * @return List of Accounts in your salesforce org 
      * with AnnualRevenue Field filled up
      */
+
+
+   //! 30 mayıs LWC dersinde eklendi practice17
+     @AuraEnabled(cacheable=true)
     public static List<Account> getAccountWithAnnualRevenue(){
 
         // List<Account> lst = [SELECT Id,Name, AnnualRevenue 

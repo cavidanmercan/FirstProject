@@ -3,7 +3,6 @@ public class PTSUsers {
     //https://api.pathtosalesforce.com/users.php
     
     //2-GET METHOD: post ile ekledik get ile alacağız   
-    //bu method ile karşı siteye user ekleyeceğiz 
     public static void GetUsers(){
       
         Http http = new Http();

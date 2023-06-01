@@ -8,6 +8,7 @@ public String phone;
 public String gender;
 public String status;
 
+
 //PTSUsersResponse parse methodunu çağırınca bize liste olarak veriyor - birden fazla user olduğu için List olarak verdi 
 //bu method siteden gelen JSON u yukarıda field leri yazılı object çeviriyor 
 public static List<PTSUsersResponse> parse(String json) {

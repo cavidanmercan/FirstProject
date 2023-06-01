@@ -8,5 +8,4 @@ public class PTSUsersRequest {
 	public String status;
      
     
-
 }
