@@ -1,11 +1,10 @@
+//! account controller class akbar yolladı 
+
+
 // with sharing will enforce record level sharing rules
 // without sharing will not enforce record level sharing rules
 
-public without sharing class AccountController {
-
-
-
-       //!bu method perşembe eklendi-sharing konusu ile ilgili
+public with sharing class AccountController {
 
    /**
      * Create a static method called getAllAccounts
@@ -15,41 +14,32 @@ public without sharing class AccountController {
 
        return [SELECT Name, AnnualRevenue 
                FROM Account
-               //WITH SECURITY_ENFORCED //ENFORM FLS , FILED LEVEL SECURITY
+               WITH SECURITY_ENFORCED //ENFORM FLS , FILED LEVEL SECURITY
                ];
 
     }
 
    
-
-    //!bunlar önceki derste yapılanlar
-    //! 1 haziran practice19 LWC de @AuraEnabled(cacheable=true) ekledik
-
     /**
      * Create a static method called getAccountByName
      * @param accName name of account you are searching
      * @return first matching account in your salesforce org
      */
-     @AuraEnabled(cacheable=true)
+   
      public static Account getAccountByName(String accName){
 
-      Account a = [SELECT Id,Name, AnnualRevenue FROM Account
+        Account a = [SELECT Id,Name FROM Account
                     WHERE Name =  :accName LIMIT 1]; 
         return a ; 
      }
 
- 
- 
-     //!bu methoda da perşembe FIELD LEVEL SECURITY için WITH SECURITY_ENFORCED eklendi-test te annual rev görebilmek için yoruma aldık 
+
     /**
      * Create a static method called getAccountWithAnnualRevenue
      * @return List of Accounts in your salesforce org 
      * with AnnualRevenue Field filled up
      */
-
-
-   //! 30 mayıs LWC dersinde eklendi practice17
-     @AuraEnabled(cacheable=true)
+    @AuraEnabled(cacheable=true)
     public static List<Account> getAccountWithAnnualRevenue(){
 
         // List<Account> lst = [SELECT Id,Name, AnnualRevenue 
@@ -60,26 +50,18 @@ public without sharing class AccountController {
         return [SELECT Id,Name, AnnualRevenue 
                 FROM Account 
                 WHERE AnnualRevenue != null 
-                //WITH SECURITY_ENFORCED // WILL ENFORCE FIELD LEVEL SECURITY
+                WITH SECURITY_ENFORCED // WILL ENFORCE FIELD LEVEL SECURITY
                 ] ; 
 
     }
 
-    /**
-     * Create a static method called getMaxRevenue
-     * @return max AnnualRevenue for all Accounts in your salesforce org 
-     */
-
-
-    //! 1 haziran practice18 LWC de ekledik
     /**
      * Create a static method called getAccountsIfRevenueLessThan
      * @param maxRevenue the upper limit of AnnualRevenue
      * @return List<Account> that has annual revenue less than maxRevenue
      * make it available for your lwc 
      */
-
-     @AuraEnabled(cacheable=true)
+    @AuraEnabled(cacheable=true)
     public static List<Account> getAccountsIfRevenueLessThan(Decimal maxRevenue){
 
          return [SELECT Id,Name, AnnualRevenue 
@@ -90,8 +72,10 @@ public without sharing class AccountController {
 
     }
 
-
-
+    /**
+     * Create a static method called getMaxRevenue
+     * @return max AnnualRevenue for all Accounts in your salesforce org 
+     */
     public static Decimal getMaxRevenue(){
          
        AggregateResult result = [SELECT MAX(AnnualRevenue) HighestRevenue 
@@ -125,25 +109,6 @@ public without sharing class AccountController {
       return acc.Opportunities ; 
     }
     
-    
-
-//! 1 haziran Practice20 LWC için ekledik
-    /**
-     * Create a method to return Max Opportunity Amount in your org 
-     * with name getMaxOppAmount no param
-     * @return theAmount in Decimal 
-     * make it available for your LWC 
-     */
-    @AuraEnabled(cacheable=true)
-    public static Decimal getMaxOppAmount(){
-      
-        AggregateResult result =  [SELECT MAX(Amount) MaxAmount FROM Opportunity] ; 
-        
-        Decimal max = (Decimal) result.get('MaxAmount') ; 
-    
-       return max; 
-
-    }
 
 
 

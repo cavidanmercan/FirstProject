@@ -1,32 +1,30 @@
+<!-- sldsValidatorIgnore -->
 <template>
-    <lightning-card title="Job Table" icon-name="custom:custom104">
+    
+  <lightning-card title="Filter Wired Datatable with slider" icon-name="standard:account">
       <div class="slds-var-m-around_medium">
-        <!-- search box -->
-        <lightning-input
-          type="search"
-          label="Search Job"
-          placeholder="type here..."
-          value={searchKey}
-          onchange={handleSearchChange}
-        ></lightning-input>
-      
+          <!-- slider with to go from  0-1,000,000,000 in 10000 per slide-->
+          <lightning-slider 
+              label="Max Revenue" 
+              max = "1000000000" 
+              value={sliderValue}
+              onchange={handleSliderChange}
+              step="10000"
+          ></lightning-slider>
+          <!-- only display if there is a result -->
+          <template lwc:if={filteredAccount} >
+              <!-- sldsValidatorIgnoreNextLine -->
+              <lightning-datatable
+                  key-field="Id"
+                  data={filteredAccount}
+                  columns={columns}
+                  show-row-number-column
+                  hide-checkbox-column
+              ></lightning-datatable>
+          </template>
 
 
-      <template lwc:if={searchKey}>
-        <p>You are searching for {searchKey}</p>
-      </template>
-  
-      <br>
-      
-      <lightning-datatable
-        key-field="jobId"
-        data={filteredJobs}
-        columns={columns}>
-     </lightning-datatable>
-      
-  
-  
       </div>
-    </lightning-card>
-  </template>
-  
+  </lightning-card>
+
+</template>

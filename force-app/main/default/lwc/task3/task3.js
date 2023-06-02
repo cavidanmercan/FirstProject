@@ -2,41 +2,71 @@ import { LightningElement,wire } from "lwc";
 import getAccountWithAnnualRevenue from "@salesforce/apex/AccountController.getAccountWithAnnualRevenue";
 
 export default class Task3 extends LightningElement {
-}
 
+  sliderValue = 50000;
+  //property to store the result.data portion of wired result
+  accounts;
+  // property to store the result.error portion of the wired result, not used in this task
+  error;
+  // columns 
+  columns = [
+    { label: 'Account Name', fieldName: 'Name' },
+    { label: 'Annual Revenue', fieldName: 'AnnualRevenue' },
+  ];
 
-    searchKey = ''; 
-
-    columns = [
-        { label: 'Job Title', fieldName: 'jobTitle' },
-        { label: 'Location', fieldName: 'location' },
-        { label: 'Salary', fieldName: 'salary' }
-    ];
-
+  handleSliderChange(event) {
+    this.sliderValue = event.detail.value;
+    console.log(event)
+    console.log(JSON.stringify(event, null, 2));
+    console.log(JSON.stringify(event.target, null, 2));
+    console.log(JSON.stringify(event.detail, null, 2));
     
-    jobs = [
-        { jobId: 1, jobTitle: 'Salesforce Administrator', location: 'San Francisco', salary: 95000 },
-        { jobId: 2, jobTitle: 'Salesforce Developer', location: 'New York', salary: 140000 },
-        { jobId: 3, jobTitle: 'Salesforce Architect', location: 'Chicago', salary: 150000 },
-        { jobId: 4, jobTitle: 'Salesforce Consultant', location: 'Los Angeles', salary: 100000 },
-        { jobId: 5, jobTitle: 'Salesforce Project Manager', location: 'Seattle', salary: 110000 },
-        { jobId: 6, jobTitle: 'Salesforce Data Analyst', location: 'Austin', salary: 80000 },
-        { jobId: 7, jobTitle: 'Salesforce Solutions Engineer', location: 'Dallas', salary: 120000 },
-        { jobId: 8, jobTitle: 'Salesforce Technical Lead', location: 'Boston', salary: 160000 },
-        { jobId: 9, jobTitle: 'Salesforce Systems Analyst', location: 'Miami', salary: 90000 },
-        { jobId: 10, jobTitle: 'Salesforce Product Manager', location: 'Denver', salary: 115000 }
-      ];
+  }
 
-    filteredJobs = this.jobs; 
-
-
-    handleSearchChange(event) {
-        this.searchKey = event.target.value;
-    
-        this.filteredJobs = this.jobs.filter(each =>
-            each.jobTitle.toLowerCase().includes( this.searchKey.toLowerCase() )
-        );
+  get filteredAccount() {
+    // if there is data to return , return filtered result
+    if (this.accounts) {
+      return this.accounts.filter(
+        (each) => each.AnnualRevenue <= this.sliderValue
+      );
     }
+    //   or return empty array
+    return [];
+  }
 
+  /**
+    @wire decorator is used to get salesforce data, also called wire adaptor
+     below line will call the apex method getAccountWithAnnualRevenue
+     get the result -> turn it into json with certain structure
+     and assign it to the property(or function) right under ->
+     in this case the function parameter 
+     it will have this structure 
+    {
+        data : [the data queried] , 
+        error : undefined
+    }
+    */
+  @wire(getAccountWithAnnualRevenue)
+  myWiredAccountsOrCallItAnything({ data, error }) {
+    // destructing the result we got from apex into data and error variable using destructing syntax
 
+    if (data) {
+      this.accounts = data;
+      this.error = undefined;
+    } else if (error) {
+      this.error = error;
+      this.data = undefined;
+    }
+  }
 }
+
+/**
+ let result = {
+    data : "some data goes here", 
+    error : "some error goes here",
+ }
+ // use destructing to save data and error values into 2 variable 
+ let {data , error} = result ; 
+
+ 
+ */
