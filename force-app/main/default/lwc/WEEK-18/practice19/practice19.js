@@ -1,13 +1,14 @@
-import getAccountByName from "@salesforce/apex/AccountController.getAccountByName";
 import { LightningElement , wire} from "lwc";
+import getAccountByName from "@salesforce/apex/AccountController.getAccountByName";
+
 export default class Practice19 extends LightningElement {
 
+    
     searchInput = ''; 
 
     handleSearchChange(event) {
         this.searchInput = event.target.value; 
     }
-
 
     // wire the result of getAccountByName 
     // into property called theAccount

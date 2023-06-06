@@ -15,6 +15,7 @@ export default class Practice20 extends LightningElement {
     @wire(getMaxOppAmount)
     wiringIntoThisMethodParam({ data, error} ) { // destruct the wired result into 2 variables data, error
         
+        
         console.log(data); 
 
         if (data) {

@@ -11,19 +11,22 @@ public without sharing class AccountController {
      * Create a static method called getAllAccounts
      * @return all the accounts in your salesforce org
      */
+
+    //! 5 haziran practice28 LWC de @AuraEnabled(cacheable=true) ve ORDER BY CreatedDate Desc ekledik
+
+     @AuraEnabled(cacheable=true)
     public static List<Account> getAllAccounts(){
 
        return [SELECT Name, AnnualRevenue 
-               FROM Account
+               FROM Account ORDER BY CreatedDate Desc
                //WITH SECURITY_ENFORCED //ENFORM FLS , FILED LEVEL SECURITY
                ];
 
     }
 
    
-
     //!bunlar önceki derste yapılanlar
-    //! 1 haziran practice19 LWC de @AuraEnabled(cacheable=true) ekledik
+    //! 1 haziran practice19 LWC de @AuraEnabled(cacheable=true) ve SOQL e AnnualRevenue ekledik
 
     /**
      * Create a static method called getAccountByName
@@ -48,7 +51,7 @@ public without sharing class AccountController {
      */
 
 
-   //! 30 mayıs LWC dersinde eklendi practice17
+   //! 30 mayıs LWC practice17 için @AuraEnabled(cacheable=true) kısmı eklendi 
      @AuraEnabled(cacheable=true)
     public static List<Account> getAccountWithAnnualRevenue(){
 
@@ -71,7 +74,7 @@ public without sharing class AccountController {
      */
 
 
-    //! 1 haziran practice18 LWC de ekledik
+    //! 1 haziran practice18 LWC için ekledik
     /**
      * Create a static method called getAccountsIfRevenueLessThan
      * @param maxRevenue the upper limit of AnnualRevenue

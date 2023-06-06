@@ -20,7 +20,7 @@ export default class Practice21 extends LightningElement {
         getMaxOppAmount().then(result => {
             console.log(result); // returned data from apex  9999999
             this.highestOppAmount = result; 
-        } )                 
+        } );                 
         
 
     }
