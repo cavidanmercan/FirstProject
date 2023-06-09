@@ -1,0 +1,29 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-card title="Your Card Name" icon-name="standard:account">
+      <div class="slds-var-m-around_medium">
+        <lightning-input
+          type="search"
+          label="Amount"
+          placeholder="type amount..."
+          onchange={handleSearch}
+          value={searchKey}
+        ></lightning-input>
+  
+      <br>
+  
+      <template lwc:if={Opportunities}>
+  <!-- sldsValidatorIgnoreNextLine -->
+          
+          <lightning-datatable
+              key-field="id"
+              data={Opportunities} 
+              columns={columnsList}> 
+          </lightning-datatable>
+  
+  
+      </template>
+  
+      </div>
+    </lightning-card>
+  </template>

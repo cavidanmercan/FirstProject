@@ -1,5 +1,6 @@
-import { getFieldValue, getRecord } from "lightning/uiRecordApi";
 import { LightningElement, wire } from "lwc";
+import { getFieldValue, getRecord } from "lightning/uiRecordApi";
+
 import NAME_FIELD from "@salesforce/schema/Opportunity.Name";
 import STAGE_FIELD from "@salesforce/schema/Opportunity.StageName";
 import CLOSE_DATE_FIELD from "@salesforce/schema/Opportunity.CloseDate";
@@ -7,9 +8,6 @@ import USER_ID from '@salesforce/user/Id';
 
 import USERNAME_FIELD from "@salesforce/schema/User.Username";
 import EMAIL_FIELD from "@salesforce/schema/User.Email";
-
-
-
 
 
 
@@ -30,7 +28,7 @@ export default class Practice26 extends LightningElement {
 
 
 
-    recordId = '006Dm000004D5XJIA0';  // use your own recordId
+    recordId = '006Dn000009WKkxIAG';  // use your own recordId
 
     // according to above recordId get the entire opp record and wire into below property
     // salesforce provide set of javascript methods to get single data

@@ -12,5 +12,4 @@
     
         fields = [NAME_FIELD, STAGE_FIELD, CLOSE_DATE_FIELD, AMOUNT_FIELD];
     
-    
-    }    
+        }    

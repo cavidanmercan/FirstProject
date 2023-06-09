@@ -7,14 +7,11 @@ import AMOUNT_FIELD from "@salesforce/schema/Opportunity.Amount";
 
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
-
-
 export default class Practice24 extends LightningElement {
 
     objectApiName = OPP_OBJECT; 
 
     fields = [NAME_FIELD, STAGE_FIELD, CLOSE_DATE_FIELD, AMOUNT_FIELD]; 
-
 
     showSuccess(event) {
         

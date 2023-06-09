@@ -1,0 +1,30 @@
+<template>
+    
+    <lightning-card title="Accounts and Contacts" icon-name="standard:account">
+        <div class="slds-var-m-around_medium">
+
+            <template lwc:if={accList}>
+                <lightning-datatable
+                    key-field="id"
+                    data={accList}
+                    columns={accColumns}>
+                </lightning-datatable>
+
+            </template>
+
+            <template lwc:if={conList}>
+                <lightning-datatable
+                key-field="id"
+                data={conList}
+                columns={conColumns}>
+            </lightning-datatable>
+
+
+
+                
+            </template>
+
+        </div>
+    </lightning-card>
+
+</template>

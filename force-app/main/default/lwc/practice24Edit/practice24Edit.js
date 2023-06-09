@@ -7,7 +7,6 @@ import AMOUNT_FIELD from "@salesforce/schema/Opportunity.Amount";
 
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
-
 export default class Practice24Edit extends LightningElement {
 
 
