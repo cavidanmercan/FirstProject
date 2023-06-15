@@ -5,6 +5,22 @@ public without sharing class AccountController {
 
 
 
+
+
+
+    //!bu method 13 haz eklendi
+
+    @AuraEnabled(cacheable=true)
+    public static List<Account> getBigTechAccounts() {
+        return [SELECT Id, Name, BillingStreet, BillingCity, BillingState, BillingCountry, BillingPostalCode, Description FROM Account WHERE Name LIKE 'BigTech%'];
+    }
+
+
+
+
+
+
+
        //!bu method perşembe eklendi-sharing konusu ile ilgili
 
    /**

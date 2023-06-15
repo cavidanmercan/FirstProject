@@ -1,0 +1,29 @@
+<template>
+
+    <lightning-card title="Contact" icon-name="standard:account">
+        <div class="slds-var-m-around_medium">
+
+            <template lwc:if={allContacts}>
+
+                <template for:each={allContacts} for:item="each">
+
+                    <c-contact-child
+                    key={each.id}
+                    contact={each}
+                    onshow={handleClickedContact}>
+                    </c-contact-child>
+
+                </template>
+
+                <p>
+                    Clicked Contact's id is {clickedContactId}
+                </p>
+
+            </template>
+
+        </div>
+    </lightning-card>
+
+
+    
+</template>

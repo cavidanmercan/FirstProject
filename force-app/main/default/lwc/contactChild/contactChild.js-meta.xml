@@ -1,5 +1,5 @@
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
 	<apiVersion>57.0</apiVersion>
-	<isExposed>false</isExposed>
-	<masterLabel>Lds utils</masterLabel>
+	<isExposed>true</isExposed>
+	<masterLabel>Contact child</masterLabel>
 </LightningComponentBundle>
